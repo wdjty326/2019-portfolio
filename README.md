@@ -5,6 +5,7 @@
  - react-bootstrap@3.3.7
  - react-scroll@1.7.10
  - react-bootstrap@0.32.4
+ - nodemailer
 
 # 디렉토리 구조
  - contrainers : 화면의 구성을 담당하는 JS파일
@@ -24,3 +25,7 @@
 1. 기존의 nodejs 백엔드 개발 설정 제거
 - express 디렉토리에 client에 기존 로직 생성
 - client/package.json 에 proxy를 통해 백엔드 사용
+
+# 2018-12-17
+1. nodemailer 적용
+- 실제 문의하기 기능 구현 완료
