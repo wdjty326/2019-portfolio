@@ -35,7 +35,6 @@ public class RootController {
 
       try {
         // msg.setFrom(entity.get("mail"));
-        msg.setTo("wdjty326@gmail.com");
         // msg.setSubject(entity.get("subject"));
         msg.setText(html);
         this.sender.send(msg);
