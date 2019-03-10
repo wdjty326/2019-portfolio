@@ -1,0 +1,23 @@
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+  mvc:
+    view:
+      prefix: /jsp/
+      suffix: .jsp
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+server:
+  port: 3000
+  tomcat:
+    uri-encoding: UTF-8
+
+  
