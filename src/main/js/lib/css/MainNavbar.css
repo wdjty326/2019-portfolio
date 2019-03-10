@@ -1,0 +1,43 @@
+/*
+ * @date 2018. 10. 14
+ * @anather Jeong Taek You
+ * @explanation
+ 	상단 고정 메뉴바를 구성 합니다.
+ */
+
+.navbar {
+	height: 74px;
+	background-color: #fff;
+}
+
+.navbar .container {
+	position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.navbar-brand {
+	font-size: 22px;
+}
+
+.navbar-nav > li > a {
+	font-size: 16px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #99FF99;
+}
+
+.navbar-default .navbar-nav > li > a.activePage {
+    color: #99FF99;
+}
+
+@media screen and (max-width:768px) {
+	.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+		    background: #FFF;
+				margin-top: 9px;
+	}
+}

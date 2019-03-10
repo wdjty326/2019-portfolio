@@ -1,0 +1,233 @@
+/* 이벤트 정의 */
+@keyframes slowView {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+.HideElement {
+	opacity: 0;
+}
+
+.EventShowElement {
+	-webkit-animation: slowView 3s 1;
+    -moz-animation: slowView 3s 1;
+    -o-animation: slowView 3s 1;
+    animation: slowView 3s 1;
+	opacity: 1;
+}
+/* 이벤트 */
+.MainBody {
+	width : 100%;
+	height : auto;
+	position: absolute;
+
+	-webkit-animation: slowView 1s 1;
+    -moz-animation: slowView 1s 1;
+    -o-animation: slowView 1s 1;
+    animation: slowView 1s 1;
+}
+
+.SubContent {
+	width: 100%;
+	height : 800px;
+	padding-top: 74px;
+}
+
+.SubContent[name=InquiryPage] {
+	padding-top: 148px;
+	height: 980px;
+}
+
+.SubContent[name=MainPage] {
+	background-image : url('../image/image2.jpeg');
+	background-repeat : no-repeat;
+}
+
+.SubContent[name=SkillPage] {
+	background-image : url('../image/image4.jpg');
+	background-repeat : no-repeat;
+}
+
+.SubContent[name=ActivityPage] {
+	background-image : url('../image/image1.jpeg');
+	background-repeat : no-repeat;
+}
+
+.parallax-scrolling.parallax-top {
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax-scrolling.parallax-center {
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* MainPage */
+.MainPage {
+	position: relative;
+	width : 480px;
+	top : 240px;
+	right : 0px;
+	left : 24px;
+	margin-left: auto;
+	margin-right: 0px;
+}
+
+.MainPage > .MainText {
+	color : #333333;
+	font-size: 52px;
+	font-weight: bold;
+}
+
+
+.MainPage > .MainText > p > code{
+	color: #66CC66;
+    background-color: transparent;
+}
+
+.MainPage > .SubText {
+	padding-top: 52px;
+	color : #333333;
+	font-size: 28px;
+	font-weight: bold;
+	font-style: oblique;
+}
+/* MainPage END */
+
+
+/* SkillPage */
+.SkillPage {
+	position: relative;
+	width : 600px;
+	top : 0px;
+	right : 0px;
+	left : 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.SkillPage > .MainText {
+	color : #FFF;
+	font-size: 42px;
+	font-weight: bold;
+}
+
+.SkillPage > .SubText {
+	padding-top: 42px;
+	color : #FFF;
+	font-size: 24px;
+	font-weight: bold;
+	font-style: oblique;
+}
+
+.SkillProgressbar {
+	padding-top : 120px;
+}
+
+.SkillProgressbar .label{
+	color: #FFF;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.SkillProgressbar .progress {
+	background-color:transparent;
+	height : 32px;
+	margin-bottom: 32px;
+}
+
+
+
+
+.SkillProgressbar .progress > .progress-bar {
+	border-radius : 4px;
+	font-size: 16px;
+    line-height: 32px;
+}
+/* SkillPage END */
+
+.ActivityPage {
+	position: relative;
+	width : 600px;
+	top : 0px;
+	right : 0px;
+	left : 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ActivityPage > .MainText {
+	color : #FFF;
+	font-size: 42px;
+	font-weight: bold;
+}
+
+.ActivityPage > .SubText {
+	padding-top: 42px;
+	color : #FFF;
+	font-size: 24px;
+	font-weight: bold;
+	font-style: oblique;
+}
+
+
+.InquiryPage {
+	width: 480px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.InquiryPage > .MainText {
+	color: #333333;
+    font-size: 52px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 52px;
+}
+.projectList {
+	margin-top: 32px;
+}
+.projectList > a.carousel-control {
+	/*display: none;*/
+}
+
+.projectList .section{
+	height: 480px;
+	width : 480px;
+	position: relative;
+	left: 0px;
+	right: 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.section .panel-section {
+	background-color: transparent;
+    border-color: transparent;
+    width: 160px;
+    height: 160px;
+    text-align: center;
+    float:left;
+}
+
+.panel-section > .panel-body {
+    height: 120px;
+}
+
+.panel-section > .panel-footer {
+   background: transparent;
+       font-weight: bold;
+    color: #FFF;
+}

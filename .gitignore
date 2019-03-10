@@ -1,34 +1,30 @@
-node_modules
-ncp-debug.log
-npm-debug.log
-bower_component
-src/config/configSec.js
-client/node_modules
+HELP.md
+/target/
+!.mvn/wrapper/maven-wrapper.jar
 
-.DS_STORE
+### Node ###
 node_modules
-*~
-*.pyc
-static
-.grunt
-_SpecRunner.html
-__benchmarks__
-build/
-coverage/
-.module-cache
-*.gem
-docs/.bundle
-docs/code
-docs/_site
-docs/.sass-cache
-docs/js/*
-docs/downloads
-docs/vendor/bundle
-examples/shared/*.js
-test/the-files-to-test.generated.js
-*.log*
-chrome-user-data
-*.sublime-project
-*.sublime-workspace
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
 .idea
+*.iws
 *.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+node_modules
