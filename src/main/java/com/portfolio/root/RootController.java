@@ -31,17 +31,21 @@ public class RootController {
   @PostMapping(value="/sendmail")
   public @ResponseBody Map<String, Object> sendmail(@RequestBody MultiValueMap<String, String> entity) {
       SimpleMailMessage msg = new SimpleMailMessage();
-      String html = "<pre>" + entity.get("content") + "</pre>";
+      String html = "<pre>" + entity.getFirst("content") + "</pre>";
 
       try {
-        // msg.setFrom(entity.get("mail"));
-        // msg.setSubject(entity.get("subject"));
+        String mail = entity.getFirst("mail");
+        String subject = entity.getFirst("subject");
+
+        msg.setFrom(mail);
+        
+        msg.setSubject(subject);
         msg.setText(html);
         this.sender.send(msg);
       } catch (Exception e) {
 
       }
-      return new HashMap<String, Object>();;
+      return new HashMap<String, Object>();
   }
   
 }
