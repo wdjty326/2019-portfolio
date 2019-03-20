@@ -1,6 +1,6 @@
-### API 정의
-| API | 정의 | 파라미터 |
-|---|---|---|
-| GET<br>/api/chatroom/list | 채팅 리스트를 가져옵니다. | N/A |
-| GET<br>/api/connect/{id}/{chatroomId} | 선택한 채팅방에 접속합니다. | id{Long}<br>chatroomId={Long} |
-| GET<br>/api/push | 채팅을 전송합니다. | id={Long}<br>chatroomId={Long}<br>text={String} |
+# 포트폴리오 페이지
+- 2019-03-20일 자로 일부 화면 UI 및 기능 수정중에 있습니다.
+- readme 내용도 정리되는 대로 작성하여 올리도록 하겠습니다.
+
+1. backend 부분을 java-spring 으로 변경 작업
+2. skill 을 단순히 프로그래스바로 보여주는거는 좋지 않아 상세내용을 보여줄 예정입니다.
