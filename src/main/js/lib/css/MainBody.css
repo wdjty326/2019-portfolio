@@ -68,7 +68,6 @@
     background-size: cover;
 }
 
-
 /* MainPage */
 .MainPage {
 	position: relative;
@@ -85,7 +84,6 @@
 	font-size: 52px;
 	font-weight: bold;
 }
-
 
 .MainPage > .MainText > p > code{
 	color: #66CC66;
@@ -127,29 +125,39 @@
 	font-style: oblique;
 }
 
-.SkillProgressbar {
-	padding-top : 120px;
+.SkillPage > .SkillList {
+	width: 100%;
+	height: auto;
+	display:table;
+	border-spacing: 3em;
+	position:relative;
 }
 
-.SkillProgressbar .label{
-	color: #FFF;
-    font-weight: bold;
-    font-size: 32px;
+.SkillList > div {
+	display: table-row;
 }
 
-.SkillProgressbar .progress {
-	background-color:transparent;
-	height : 32px;
-	margin-bottom: 32px;
+.SkillList > div > div {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	width: 10em;
+	height: 10em;
+	transform: scale(1);
+	transition: transform .2s linear;
 }
 
+.SkillList > div > div:hover {
+	transform: scale(1.12);
+}
 
+.SkillList > div > div > svg {
+	width: 100% !important;
+	height: 100% !important;
+}
 
-
-.SkillProgressbar .progress > .progress-bar {
-	border-radius : 4px;
-	font-size: 16px;
-    line-height: 32px;
+.SkillList > div > div > span {
+	font-size: 1.25em;
 }
 /* SkillPage END */
 
@@ -176,7 +184,6 @@
 	font-weight: bold;
 	font-style: oblique;
 }
-
 
 .InquiryPage {
 	width: 480px;

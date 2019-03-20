@@ -16,7 +16,7 @@ module.exports = {
   cache: true,
   output: {
     path: path.resolve(__dirname, 'src/main/webapp'),
-    filename: './static/js/bundle..min.js'
+    filename: './static/js/bundle.min.js'
   },
   mode: 'none',
   module: {
