@@ -4,6 +4,7 @@ HELP.md
 
 ### Node ###
 node_modules
+src/main/webapp/static
 
 ### STS ###
 .apt_generated
