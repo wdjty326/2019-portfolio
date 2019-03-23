@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class SkillJava extends Component {
+export default class SkillReact extends Component {
   render() {
     return (
       <div />
