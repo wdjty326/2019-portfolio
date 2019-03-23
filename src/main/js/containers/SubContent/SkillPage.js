@@ -12,29 +12,29 @@ export default class SkillPage extends Component {
 				icon: faJava,
 				name: 'Java',
 				color: '#436E90',
-				// component: SkillList.SkillJava,
+				component: <SkillList.SkillJava />,
 			}, {
 				icon: faLeaf,
 				name: 'SpringFramework',
 				color: '#5DC430',
-				// component: SkillList.SkillSpring,
+				component: <SkillList.SkillSpring />,
 			}, {
 				icon: faReact,
 				name: 'React',
 				color: '#54D1FA',
-				// component: SkillList.SkillReact,
+				component: <SkillList.SkillReact />,
 			},
 		], [
 			{
 				icon: faJs,
 				name: 'ES6',
 				color: '#F4DB26',
-				// component: SkillList.SkillES6,
+				component: <SkillList.SkillES6 />,
 			}, {
 				icon: faHtml5,
 				name: 'HTML5',
 				color: '#DA3626',
-				// component: SkillList.SkillHTML5,
+				component: <SkillList.SkillHTML5 />,
 			},
 		],
 	];
@@ -53,20 +53,13 @@ export default class SkillPage extends Component {
 	}
 
 	toggleChange = (event, toggle = null) => {
-		const { target, clientX, clientY } = event;
-
-		console.log(clientX, clientY , toggle);
 		this.setState({
 			fullScreenName: toggle,
-			style: {
-				top: clientY,
-				left: clientX,
-			},
 		});
 	}
 	
 	render() {
-		const { fullScreenName, style } = this.state;
+		const { fullScreenName } = this.state;
 		const MainClassName = (!this.props.viewEvent) ? "SkillPage EventShowElement" : "SkillPage HideElement";
 
 		return (
@@ -93,6 +86,7 @@ export default class SkillPage extends Component {
 														color,
 													}}
 													role="presentaition"
+													className="blockSkillview"
 													onClick={(event)=>this.toggleChange(event, info.name)}
 												>
 													<FontAwesomeIcon icon={info.icon} />
@@ -101,7 +95,18 @@ export default class SkillPage extends Component {
 											</Flipped>
 										) : (
 											<Flipped flipId={info.name}>
-												<div className="fullscreenSkillview" />
+												<div
+													className="fullscreenSkillview"
+													style={{
+														backgroundColor:color,
+													}}
+													role="presentaition"
+													onClick={(event)=>this.toggleChange(event)}
+												>
+													<div>
+														{info.component}
+													</div>
+												</div>
 											</Flipped>
 										)
 									})
