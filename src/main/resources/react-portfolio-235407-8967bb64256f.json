@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "react-portfolio-235407",
+  "private_key_id": "8967bb64256f4b38fa0b12acb3dc52e5cb020e7b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDGkWZpQ3obEScr\nxEkaqhkXY7f+zUkl319+ht4N1eB0bWfzcyJGL1+ZOHFnZCwbK2NO4KzBVmUAuyOL\nrqc+WVYDAWDZA0NjfjLDukq2JvPKwNgI0FaJQX2slUub7/Em6U/47oJjJpRwAAxJ\ngoulWqZmBnzWWnjCGcDpEr5OsXluAELnr0qXdTOJwF0oKY2+de4hV+/BwNZ8W/a5\nURRthDG26KG4wggsQ46rtgkFQ+q6rCGwMkuEOkB+7pVS7FX3BXjIlN1LsWntEmW1\nMD7rFyoR0noHT7LllRFkSlINcylRpjINeUvY7HwAtpO8Ad3cfeDZokKUAsdTsxaI\nd/208nFfAgMBAAECggEAC0zrpzjyW+3IrQDeNWWRyP167RLRkC8beA/RcLfuLq7d\nROl7/VxYoSRce9XwSdmMLMlN7sptmn8ljjj+oDM+v5JwAkAUl508FilMQC9ZhEpT\nFE+6/qCBOCjei5c6Dtm/T3tPZOu/DdxK1riJtvunAm5pfPXbVa++hUuOR6jQMGmh\nc23rbkT8Qn00L79nDmloPE2OheE3fT95v7KEpixYdMYp+WPE7xuesHNsl/EsIaLi\nvvRHdqjf0RYk9hsiiNMdq17ZFhO1WKcVA+QHwIcWmsAW/lWyq+CGAQZrzqhIMfPI\ns15if7RV5JQMr4fRp3jgYLsFJZUPzKpAYxG3n8VLKQKBgQD0LRZgGVzVy+fj8GZB\ntm9Ym5jkXI2FUuIeJWVdkbwl64Z8R8PRInRhhPmFyaZfEU2b0Qjp43w66ACFtnm4\n6Mm7ZlWNjv/0v0I4dkoYUpy2xcOwN6SrbzKzn8qdifsIKjREC4KQF6Cb2QQEnWet\nJTEVs71b9BdQR/LZDarXSEGGWQKBgQDQLu8tJ53kmo3oF6zdofTRN2czFFXEyRi5\nH24jMNod0wrCdhxG43GU29umlzqsi6sVTySoZ6yByUkc+LYjExNlBtcwtDsAEjK1\niR8Mhdjd7kjcMNqBe3pA8Wu8bdQPWNMm8kKoCToVsuSVx2BkHqrDQQ+xBmHhhcXB\nTgrGIgEudwKBgQDWoXdEm6aty2GXS+4mnv067vKy8OP5KITYKNj0KbEvx9rcDZ0D\njPyt59wJjNowQJ5uc40ZQjwl717eKirOrdj9YBOdrfAxK5lC1j+FJ8DXK/k6QX7+\nrmzr1W6dkfbWE3sDwPZQQGSN+XF9uPq0CLgfsnGljWacy9Gcl1XvjHUEaQKBgFCl\nnen0KupgJRD/+utwzhIuUEAtZHxzGqy8TEI9roFXPBfRAWtEuL9d3F1QwF4PTRtY\nKW9DmkQ84aHjh0tXHHBKkho/94szgYlpsSl8wGJY6MjD9CGs39NAsuev9DJtyn6P\n4tqNmH7Hal3Ler/OUYCKN7XwLwLae51CylGu4p5JAoGARs/ZnGQd9Pxu1C3Mn1qF\nZZF9YG88RYYax/GQ5f3eoxytyxqhVKIJqbE3pTyT0eeaWq23rJz4zDc9z3V5pSE1\nocozwd76CZVtN/NZRBXZSXzr1Gb3z0GC9Vhn2HlkxWatY03T6RQrvkSSqUzEs+QF\nEz/jRYlYszTUMjblNS0JCvs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "gmail-28@react-portfolio-235407.iam.gserviceaccount.com",
+  "client_id": "108360029477145326983",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gmail-28%40react-portfolio-235407.iam.gserviceaccount.com"
+}

@@ -16,8 +16,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.portfolio.message.DemoMailMessage;
 
@@ -41,12 +43,16 @@ public class DemoApplicationTests {
 
 	@Before
 	public void initalize() throws Exception {
-		mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+	    viewResolver.setPrefix("/jsp/");
+	    viewResolver.setSuffix(".jsp");
+		mockMvc = MockMvcBuilders.standaloneSetup(controller).setViewResolvers(viewResolver).build();
 		
 		// object json 변환 객체 설정
 		objectMapper = new ObjectMapper();
 		
 		SimpleModule simpleModule = new SimpleModule();
+		// objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 		objectMapper.registerModule(simpleModule);
 	}
 
@@ -58,7 +64,20 @@ public class DemoApplicationTests {
 	public void contextLoads() throws Exception {
 		assertNotNull(controller);
 	}
+	
+	/**
+	 * index 페이지 로드
+	 * @throws Exception
+	 */
+	@Test
+	public void indexPageLoad() throws Exception {
+		mockMvc.perform(
+				get("/")
+				)
+		.andDo(print());
+	}
 
+	
 	/**
 	 * 메일 전송 확인
 	 */
@@ -68,8 +87,8 @@ public class DemoApplicationTests {
 				new DemoMailMessage("홍길동", "wdjty326@gmail.com", "테스트제목", "테스트내용");
 		mockMvc.perform(
 				post("/sendmail")
-				.contentType(contentType)
-				.content(objectMapper.writeValueAsBytes(message))
+				// .contentType(contentType)
+				// .content(objectMapper.writeValueAsBytes(message))
 				)
 		.andExpect(status().isOk())
 		.andDo(print());
