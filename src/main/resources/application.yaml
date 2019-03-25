@@ -10,8 +10,9 @@ server:
   port: 3000
   tomcat:
     uri-encoding: UTF-8
-google:
+mail:
+  credentialFilePath: client_secret.json
+  sender: wdjty326@gmail.com
+  apiKey: AIzaSyBSjBuDAZAKN0926aM3-RqkyU705tpNrSM
   clientId: 789011210098-binf1rmg40imskamuulgs7ske03v0pns.apps.googleusercontent.com
   clientSecret: cPK904EnduXAz2CsUirfsXnA
-  redirectUri: https://developers.google.com/oauthplayground
-  code: 4/GAE_EjwmqQlL1elarm2cgpAQrEpP6t3F0YkUEr3ia2Bsza0Qo-2obMArtwlfh82jDGVBD9hzGh4GYg2kIVD6IEU

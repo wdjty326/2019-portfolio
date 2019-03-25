@@ -87,8 +87,8 @@ public class DemoApplicationTests {
 				new DemoMailMessage("홍길동", "wdjty326@gmail.com", "테스트제목", "테스트내용");
 		mockMvc.perform(
 				post("/sendmail")
-				// .contentType(contentType)
-				// .content(objectMapper.writeValueAsBytes(message))
+				.contentType(contentType)
+				.content(objectMapper.writeValueAsString(message))
 				)
 		.andExpect(status().isOk())
 		.andDo(print());
