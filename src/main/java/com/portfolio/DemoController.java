@@ -1,4 +1,4 @@
-package com.portfolio.root;
+package com.portfolio;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-public class RootController {
+public class DemoController {
   
   @Autowired
   private MailSender sender; 

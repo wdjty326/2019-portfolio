@@ -6,18 +6,14 @@ spring:
     view:
       prefix: /jsp/
       suffix: .jsp
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
 server:
   port: 3000
   tomcat:
     uri-encoding: UTF-8
+security:
+  oauth2:
+    client:
+      client-id: 789011210098-q43oiqggdv61qq7n1m4ur618httu32nn.apps.googleusercontent.com
+      client-secret: GIDvu2IZmlkRslQKkHYOMgK1
 
   
