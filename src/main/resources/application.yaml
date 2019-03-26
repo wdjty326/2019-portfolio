@@ -12,7 +12,7 @@ server:
     uri-encoding: UTF-8
 mail:
   credentialFilePath: client_secret.json
-  sender: wdjty326@gmail.com
+  dataDirectoryPath: datastore
+  adminAddress: wdjty326@gmail.com
   apiKey: AIzaSyBSjBuDAZAKN0926aM3-RqkyU705tpNrSM
-  clientId: 789011210098-binf1rmg40imskamuulgs7ske03v0pns.apps.googleusercontent.com
-  clientSecret: cPK904EnduXAz2CsUirfsXnA
+  

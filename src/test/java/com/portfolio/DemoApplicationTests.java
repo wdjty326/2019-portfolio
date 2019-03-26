@@ -19,7 +19,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.portfolio.message.DemoMailMessage;
 
@@ -84,7 +83,7 @@ public class DemoApplicationTests {
 	@Test
 	public void mailSendTest() throws Exception {
 		DemoMailMessage message = 
-				new DemoMailMessage("홍길동", "wdjty326@gmail.com", "테스트제목", "테스트내용");
+				new DemoMailMessage("홍길동", "tyjung@kei.co.kr", "테스트제목", "테스트내용");
 		mockMvc.perform(
 				post("/sendmail")
 				.contentType(contentType)
