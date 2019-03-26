@@ -1,15 +1,36 @@
 import React, { Component } from 'react';
-import { Carousel, Panel } from 'react-bootstrap';
-import reactIcon from '../../lib/image/react.png';
-import kakaoIcon from '../../lib/image/kakao.png';
+import axios from 'axios';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
+// import { Carousel, Panel } from 'react-bootstrap';
+// import reactIcon from '../../lib/image/react.png';
+// import kakaoIcon from '../../lib/image/kakao.png';
 
 /*
  * 추후에 nodejs에서 git 레파지토리 파싱 로직을 넣을 예정
  */
 export default class ActivityPage extends Component {
-	render() {
-		const MainClassName = (!this.props.viewEvent) ? "ActivityPage EventShowElement" : "ActivityPage HideElement";
+	constructor(props) {
+		super(props);
 
+		this.state = {
+			gitList : [],
+		};
+	}
+
+	componentDidMount() {
+		axios.get('/gitList').then(response => {
+			this.setState({
+				gitList: response.data.object,
+			});
+		}).catch(error => {
+			console.log(error);
+		});
+	}
+
+	render() {
+		const { gitList } = this.state;
+		const MainClassName = (!this.props.viewEvent) ? "ActivityPage EventShowElement" : "ActivityPage HideElement";
+		
 		return (
 			<div className={MainClassName}>
 				<div className="MainText">
@@ -18,7 +39,19 @@ export default class ActivityPage extends Component {
 				<div className="SubText">
 					<p>개발한 Git 프로젝트를 확인하세요.</p>
 				</div>
-				<Carousel className="projectList">
+				<div className="projectList">
+					<ListGroup variant="flush">
+						{
+							gitList.map(gitInfo => (
+								<ListGroupItem key={gitInfo.name}>
+									<h3>{gitInfo.name}</h3>
+									<p>{gitInfo.content}</p>
+								</ListGroupItem>
+							))
+						}
+					</ListGroup>
+				</div>
+				{/* <Carousel className="projectList">
 					<Carousel.Item>
 						<div className="section">
 							<Panel className="panel-section">
@@ -35,11 +68,7 @@ export default class ActivityPage extends Component {
 							</Panel>
 						</div>
 					</Carousel.Item>
-					{/*<Carousel.Item>
-						<div class="img">
-						</div>
-					</Carousel.Item>*/}
-				</Carousel>
+				</Carousel> */}
 			</div>
 		);
 	}

@@ -6,14 +6,19 @@ spring:
     view:
       prefix: /jsp/
       suffix: .jsp
+  devtools:
+    restart:
+      enabled: false
 server:
   port: 3000
   tomcat:
     uri-encoding: UTF-8
-security:
-  oauth2:
-    client:
-      client-id: 789011210098-q43oiqggdv61qq7n1m4ur618httu32nn.apps.googleusercontent.com
-      client-secret: GIDvu2IZmlkRslQKkHYOMgK1
 
+demo:
+  credentialFilePath: client_secret.json
+  dataDirectoryPath: datastore
+  adminAddress: wdjty326@gmail.com
+  apiKey: AIzaSyBSjBuDAZAKN0926aM3-RqkyU705tpNrSM
+  gitRepositoriesLink: https://github.com/wdjty326?tab=repositories
+  githubLink: https://github.com/
   

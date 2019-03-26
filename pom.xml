@@ -17,9 +17,10 @@
 
 	<properties>
 		<java.version>1.9</java.version>
-		<maven-compiler-plugin-version>3.6.1</maven-compiler-plugin-version>
-    <maven-shade-plugin-version>3.0.0</maven-shade-plugin-version>
+		<!-- <maven-compiler-plugin-version>3.6.1</maven-compiler-plugin-version>
+    <maven-shade-plugin-version>3.0.0</maven-shade-plugin-version> -->
 	</properties>
+
 
 	<dependencies>
 		<dependency>
@@ -35,17 +36,69 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>com.google.api-client</groupId>
-			<artifactId>google-api-client</artifactId>
-			<version>1.28.0</version>
+	    <groupId>com.google.api-client</groupId>
+	    <artifactId>google-api-client</artifactId>
+	    <version>1.28.0</version>
 		</dependency>
+
+  	<dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-oauth2</artifactId>
+      <version>v1-rev152-1.25.0</version>
+    </dependency>
+	  <dependency>
+	    <groupId>com.google.apis</groupId>
+	    <artifactId>google-api-services-gmail</artifactId>
+	    <version>v1-rev101-1.25.0</version>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>com.google.oauth-client</groupId>
+			<artifactId>google-oauth-client-jetty</artifactId>
+			<version>1.28.0</version>
+		</dependency> -->
+<!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+		</dependency>
+		<!-- 
+			java.lang.NoSuchMethodError: javax.servlet.http.HttpServletResponse.getStatus()I
+			이슈 발생
+			
+			maven에 spring-boot-starter-jetty을 추가하여 아래 라이브러리 dependency:tree 에 맞게 설정
+		 -->
+		<dependency>
+	    <groupId>com.google.oauth-client</groupId>
+	    <artifactId>google-oauth-client-jetty</artifactId>
+	    <version>1.28.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
-			<version>1.6.0</version>
 		</dependency>
+		
+		<dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <scope>provided</scope>
+		</dependency>
+				
+		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<dependency>
+	    <groupId>org.jsoup</groupId>
+	    <artifactId>jsoup</artifactId>
+	    <version>1.11.3</version>
+		</dependency>
+
+		<dependency>
+	    <groupId>org.asynchttpclient</groupId>
+	    <artifactId>async-http-client</artifactId>
+	    <version>2.8.1</version>
+		</dependency>
+				
 		
 		<!-- provided -->
 		<dependency>
@@ -59,10 +112,16 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>jstl</artifactId>
-				<scope>provided</scope>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<scope>provided</scope>
 		</dependency>
+		<!-- <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency> -->
 
 		<!-- test -->
 		<dependency>
@@ -72,9 +131,14 @@
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>2.25.1</version>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 

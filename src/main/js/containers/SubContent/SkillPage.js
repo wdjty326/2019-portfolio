@@ -79,9 +79,8 @@ export default class SkillPage extends Component {
 										const { color } = info;
 										return (fullScreenName !== info.name) ?
 										(
-											<Flipped flipId={info.name}>
+											<Flipped key={info.name} flipId={info.name}>
 												<div
-													key={info.name}
 													style={{
 														color,
 													}}
@@ -94,7 +93,7 @@ export default class SkillPage extends Component {
 												</div>
 											</Flipped>
 										) : (
-											<Flipped flipId={info.name}>
+											<Flipped key={info.name} flipId={info.name}>
 												<div
 													className="fullscreenSkillview"
 													style={{
