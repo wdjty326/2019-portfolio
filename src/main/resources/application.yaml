@@ -15,6 +15,7 @@ server:
     uri-encoding: UTF-8
 
 demo:
+  clientId: 789011210098-binf1rmg40imskamuulgs7ske03v0pns.apps.googleusercontent.com
   credentialFilePath: client_secret.json
   dataDirectoryPath: datastore
   adminAddress: wdjty326@gmail.com

@@ -76,12 +76,17 @@ public class DemoApplicationTests {
 		.andDo(print());
 	}
 
+	@Test
+	public void getGoogleURL() throws Exception {
+		mockMvc.perform(get("/google/auth"))
+		.andDo(print());
+	}
 	
 	/**
 	 * 메일 전송 확인 
 	 * 메일폭탄으로 주석처리;;
 	 */
-	// @Test
+	@Test
 	public void mailSendTest() throws Exception {
 		DemoMailMessage message = 
 				new DemoMailMessage("홍길동", "test@gmail.com", "테스트제목", "테스트내용");

@@ -7,16 +7,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.Properties;
 
@@ -24,6 +20,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 
+import com.google.api.client.auth.oauth2.BrowserClientRequestUrl;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -43,7 +40,6 @@ import com.google.api.services.gmail.model.Profile;
 import com.portfolio.message.DemoMailMessage;
 import com.portfolio.message.DemoResponseMessage;
 
-import org.asynchttpclient.AsyncHttpClient;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -78,6 +74,9 @@ public class DemoController {
   private String gitRepositoriesLink;
   @Setter
   private String githubLink;
+  @Setter
+  private String clientId;
+  
 
   private final JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
   private final List<String> scopes = Collections.singletonList(GmailScopes.GMAIL_SEND);
@@ -86,6 +85,15 @@ public class DemoController {
   @GetMapping("/")
   public String indexPage() {
     return "index";
+  }
+  
+  @GetMapping("/google/auth")
+  @ResponseBody
+  public String getGoogleAuthUrl() {
+	  return new BrowserClientRequestUrl("https://accounts.google.com/o/oauth2/auth", clientId)
+			  .setRedirectUri("http://localhost:8888/Callback")
+			  .setScopes(scopes)
+			  .build();
   }
   
   
@@ -127,7 +135,7 @@ public class DemoController {
       ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
       mimeMessage.writeTo(byteArrayOutputStream);
       String encodedEmail = Base64.encodeBase64URLSafeString(byteArrayOutputStream.toByteArray());
-
+      
       Message googleMessage = new Message();
       googleMessage.setRaw(encodedEmail);
       service.users().messages().send(adminAddress, googleMessage).execute();
@@ -150,11 +158,10 @@ public class DemoController {
   private Credential getCredentials(HttpTransport httpTransport) throws IOException {
     InputStream in = new FileInputStream(getClass().getClassLoader().getResource(credentialFilePath).getFile());
     GoogleClientSecrets clientSecret = GoogleClientSecrets.load(jsonFactory, new InputStreamReader(in));
+   
     GoogleAuthorizationCodeFlow googleAuthorizationCodeFlow = 
     		new GoogleAuthorizationCodeFlow.Builder(httpTransport, jsonFactory, clientSecret, scopes)
     		.setDataStoreFactory(new FileDataStoreFactory(new File(dataDirectoryPath))).setAccessType("offline").build();
-    
-    
 //    GoogleCredential googleCredential = new GoogleCredential.Builder()
 //      .setClientSecrets(clientSecrets)
 //      //.setClientSecrets(clientId, clientSecret)
