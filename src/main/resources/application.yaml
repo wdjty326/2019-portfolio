@@ -10,9 +10,11 @@ server:
   port: 3000
   tomcat:
     uri-encoding: UTF-8
-mail:
+
+demo:
   credentialFilePath: client_secret.json
   dataDirectoryPath: datastore
   adminAddress: wdjty326@gmail.com
   apiKey: AIzaSyBSjBuDAZAKN0926aM3-RqkyU705tpNrSM
+  gitLink: https://github.com/wdjty326?tab=repositories
   

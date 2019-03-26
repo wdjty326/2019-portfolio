@@ -1,14 +1,23 @@
 package com.portfolio;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.GeneralSecurityException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.mail.MessagingException;
@@ -34,6 +43,11 @@ import com.google.api.services.gmail.model.Profile;
 import com.portfolio.message.DemoMailMessage;
 import com.portfolio.message.DemoResponseMessage;
 
+import org.asynchttpclient.AsyncHttpClient;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -48,7 +62,7 @@ import lombok.Setter;
 
 
 @EnableConfigurationProperties
-@ConfigurationProperties(prefix="mail")
+@ConfigurationProperties(prefix="demo")
 @Controller
 public class DemoController {
   private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -60,6 +74,8 @@ public class DemoController {
   private String adminAddress;
   @Setter
   private String apiKey;
+  @Setter
+  private String gitLink;
 
   private final JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
   private final List<String> scopes = Collections.singletonList(GmailScopes.GMAIL_SEND);
@@ -68,6 +84,13 @@ public class DemoController {
   @GetMapping("/")
   public String indexPage() {
     return "index";
+  }
+  
+  
+  @GetMapping("/gitList")
+  public DemoResponseMessage<List<Map<String, String>>> gitList() {
+	  List<Map<String, String>> RepositoriesInfo = getRepositoriesInfo();
+	  return new DemoResponseMessage<List<Map<String,String>>>(true, RepositoriesInfo);
   }
 
   // https://www.programcreek.com/java-api-examples/index.php?api=com.google.api.services.gmail.model.Message
@@ -144,5 +167,57 @@ public class DemoController {
 //      .build();
 //    googleCredential.refreshToken();
     return new AuthorizationCodeInstalledApp(googleAuthorizationCodeFlow, receiver).authorize("user");
+  }
+  
+  private List<Map<String, String>> getRepositoriesInfo() {
+	  List<Map<String, String>> RepositoriesInfo = new ArrayList<Map<String,String>>();  
+	  
+	  try {
+		Elements elements = getDocument().select("#user-repositories-list").select("li.source > div:nth-child(1)");
+		
+		for(Element element : elements) {
+			Map<String, String> RepositoryInfo = new HashMap<>();
+			RepositoryInfo.put("name", element.select("div:nth-child(1) > h3 > a").text());
+			RepositoryInfo.put("href", element.select("div:nth-child(1) > h3 > a").attr("href"));
+			RepositoryInfo.put("content", element.select("div:nth-child(2)").text());
+			
+			RepositoriesInfo.add(RepositoryInfo);
+		}
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	  
+	  return RepositoriesInfo;
+  }
+  
+  /**
+   * document 객체 가져오기
+   * @return
+   * @throws IOException
+   */
+  private Document getDocument() throws IOException {
+	 URL url = null;
+	 Document document = null;
+	 BufferedReader reader = null;
+	 try {
+		 url = new URL(gitLink);
+		 reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+		 StringBuffer strBuf = new StringBuffer();
+		 String line = "";
+		 
+		 while((line = reader.readLine()) != null)
+			 strBuf.append(line);
+		 
+		 reader.close();
+		 
+		 document = Jsoup.parse(strBuf.toString());
+	 } catch (IOException e) {
+		 logger.error(e.getMessage());
+	 } finally {
+		if (reader != null) reader.close();
+	}
+	
+	return document;
   }
 }
