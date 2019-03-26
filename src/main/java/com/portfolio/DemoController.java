@@ -75,7 +75,9 @@ public class DemoController {
   @Setter
   private String apiKey;
   @Setter
-  private String gitLink;
+  private String gitRepositoriesLink;
+  @Setter
+  private String githubLink;
 
   private final JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
   private final List<String> scopes = Collections.singletonList(GmailScopes.GMAIL_SEND);
@@ -88,6 +90,7 @@ public class DemoController {
   
   
   @GetMapping("/gitList")
+  @ResponseBody
   public DemoResponseMessage<List<Map<String, String>>> gitList() {
 	  List<Map<String, String>> RepositoriesInfo = getRepositoriesInfo();
 	  return new DemoResponseMessage<List<Map<String,String>>>(true, RepositoriesInfo);
@@ -178,7 +181,7 @@ public class DemoController {
 		for(Element element : elements) {
 			Map<String, String> RepositoryInfo = new HashMap<>();
 			RepositoryInfo.put("name", element.select("div:nth-child(1) > h3 > a").text());
-			RepositoryInfo.put("href", element.select("div:nth-child(1) > h3 > a").attr("href"));
+			RepositoryInfo.put("href", githubLink + element.select("div:nth-child(1) > h3 > a").attr("href"));
 			RepositoryInfo.put("content", element.select("div:nth-child(2)").text());
 			
 			RepositoriesInfo.add(RepositoryInfo);
@@ -201,7 +204,7 @@ public class DemoController {
 	 Document document = null;
 	 BufferedReader reader = null;
 	 try {
-		 url = new URL(gitLink);
+		 url = new URL(gitRepositoriesLink);
 		 reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
 		 StringBuffer strBuf = new StringBuffer();
 		 String line = "";

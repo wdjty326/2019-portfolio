@@ -65,6 +65,14 @@ export default class MainBody extends Component {
 	}
 
 	render() {
+		const {
+			slowViewEventHandler,
+		} = this.state;
+
+		const {
+			toggleAjaxLoad,
+		} = this.props;
+
 		return (
 			<div className="MainBody">
 				{/* 메인 */}
@@ -73,15 +81,22 @@ export default class MainBody extends Component {
 				</Element>
 				{/* 기술력 */}
 				<Element name="SkillPage" className="SubContent">
-					<SkillPage viewEvent={this.state.slowViewEventHandler.SkillPage} />
+					<SkillPage
+						viewEvent={slowViewEventHandler.SkillPage}
+					/>
 				</Element>
 				{/* 활동 */}
 				<Element name="ActivityPage" className="SubContent parallax-scrolling parallax-center">
-					<ActivityPage viewEvent={this.state.slowViewEventHandler.ActivityPage} />
+					<ActivityPage
+						viewEvent={slowViewEventHandler.ActivityPage}
+						toggleAjaxLoad={toggleAjaxLoad}
+					/>
 				</Element>
 				{/* 문의 */}
 				<Element name="InquiryPage" className="SubContent">
-					<InquiryPage />
+					<InquiryPage
+						toggleAjaxLoad={toggleAjaxLoad}
+					/>
 				</Element>
 			</div>
 		);

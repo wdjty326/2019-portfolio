@@ -78,24 +78,38 @@ export default class InquiryPage extends Component {
 
 	handlerSumbit(event) {
 		event.preventDefault();
+		const { toggleAjaxLoad } = this.props;
 		// console.log(event);
 		// window.alert('현재 페이지 backend 부분을 전반적으로 수정중 이므로, 2019월 3일 20일자로 메일 발송을 임시 중단합니다.');
 
+		axios.interceptors.request.use(
+			request => {
+				// console.log("언제발생합니까?", request);
+				toggleAjaxLoad();
+				return request;
+			},
+			error => {
+				// console.log("와카리마셍?", error);
+				toggleAjaxLoad();
+				return Promise.reject(error);
+			}
+		);
 		if ( regExp_Email.test(this.state.address) ) {
 			axios.post('/sendmail', this.state).then(response => {
-
-				//console.log("response : " ,response);
-				if (response.data.success) {
-					this.setState({
-						SuccessMessageAlert : true,
-						DangerMessageAlert : false
-					});
-				} else {
-					this.setState({
-						SuccessMessageAlert : false,
-						DangerMessageAlert : true
-					});
-				}
+				setTimeout(() => {
+					toggleAjaxLoad();
+					if (response.data.success) {
+						this.setState({
+							SuccessMessageAlert : true,
+							DangerMessageAlert : false
+						});
+					} else {
+						this.setState({
+							SuccessMessageAlert : false,
+							DangerMessageAlert : true
+						});
+					}	
+				}, 1000);
 			}).catch(function(error){
 				console.log(error);
 			});

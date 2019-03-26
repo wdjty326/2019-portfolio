@@ -6,6 +6,9 @@ spring:
     view:
       prefix: /jsp/
       suffix: .jsp
+  devtools:
+    restart:
+      enabled: false
 server:
   port: 3000
   tomcat:
@@ -16,5 +19,6 @@ demo:
   dataDirectoryPath: datastore
   adminAddress: wdjty326@gmail.com
   apiKey: AIzaSyBSjBuDAZAKN0926aM3-RqkyU705tpNrSM
-  gitLink: https://github.com/wdjty326?tab=repositories
+  gitRepositoriesLink: https://github.com/wdjty326?tab=repositories
+  githubLink: https://github.com/
   

@@ -1,6 +1,4 @@
 # 포트폴리오 페이지
-- 2019-03-20일 자로 일부 화면 UI 및 기능 수정중에 있습니다.
-- readme 내용도 정리되는 대로 작성하여 올리도록 하겠습니다.
+ReactJS + Springboot 환경으로 개발 및 배포한 자체 포트폴리오 입니다.
 
-1. backend 부분을 java-spring 으로 변경 작업
-2. skill 을 단순히 프로그래스바로 보여주는거는 좋지 않아 상세내용을 보여줄 예정입니다.
+- Link : http://ec2-18-191-69-198.us-east-2.compute.amazonaws.com:3000
