@@ -17,13 +17,14 @@ server:
 demo:
   host: smtp.gmail.com
   port: 587
-  clientId: 789011210098-binf1rmg40imskamuulgs7ske03v0pns.apps.googleusercontent.com
+  passwordFilePath: password.txt
+  clientId: 
   #redirectURL: http://ec2-18-191-69-198.us-east-2.compute.amazonaws.com:8888/Callback
   redirectURL: http://localhost:8888/Callback
-  credentialFilePath: react-portfolio-235407-4da656373f73.json #react-portfolio-235407-a23cb1ccec7b.p12
+  credentialFilePath: client_secret.json
   dataDirectoryPath: datastore
-  adminAddress: wdjty326@gmail.com
+  adminAddress: wdjty326jp@gmail.com
   apiKey: AIzaSyBSjBuDAZAKN0926aM3-RqkyU705tpNrSM
   gitRepositoriesLink: https://github.com/wdjty326?tab=repositories
-  githubLink: https://github.com/
+  githubLink: https://github.com
   
