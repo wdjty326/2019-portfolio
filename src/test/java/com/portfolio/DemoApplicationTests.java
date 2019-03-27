@@ -89,7 +89,7 @@ public class DemoApplicationTests {
 	@Test
 	public void mailSendTest() throws Exception {
 		DemoMailMessage message = 
-				new DemoMailMessage("홍길동", "test@gmail.com", "테스트제목", "테스트내용");
+				new DemoMailMessage("홍길동", "wdjty326jp@gmail.com", "테스트제목", "테스트내용");
 		mockMvc.perform(
 				post("/sendmail")
 				.contentType(contentType)
