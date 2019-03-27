@@ -37,13 +37,16 @@ export default class ActivityPage extends Component {
 					<p>어떤 활동들이 있었습니까?</p>
 				</div>
 				<div className="SubText">
-					<p>개발한 Git 프로젝트를 확인하세요.</p>
+					<p>개발중인 최신 Git 프로젝트를 확인하세요.</p>
 				</div>
 				<div className="projectList">
 					<ListGroup variant="flush">
 						{
-							gitList.map(gitInfo => (
-								<ListGroupItem key={gitInfo.name}>
+							gitList.filter((gitInfo, idx) => idx < 4).map(gitInfo => (
+								<ListGroupItem
+									key={gitInfo.name}
+									href={gitInfo.href}	
+								>
 									<h3>{gitInfo.name}</h3>
 									<p>{gitInfo.content}</p>
 								</ListGroupItem>

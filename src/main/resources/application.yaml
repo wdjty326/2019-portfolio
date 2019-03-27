@@ -15,10 +15,16 @@ server:
     uri-encoding: UTF-8
 
 demo:
+  host: smtp.gmail.com
+  port: 587
+  passwordFilePath: password.txt
+  clientId: 
+  #redirectURL: http://ec2-18-191-69-198.us-east-2.compute.amazonaws.com:8888/Callback
+  redirectURL: http://localhost:8888/Callback
   credentialFilePath: client_secret.json
   dataDirectoryPath: datastore
-  adminAddress: wdjty326@gmail.com
+  adminAddress: wdjty326jp@gmail.com
   apiKey: AIzaSyBSjBuDAZAKN0926aM3-RqkyU705tpNrSM
   gitRepositoriesLink: https://github.com/wdjty326?tab=repositories
-  githubLink: https://github.com/
+  githubLink: https://github.com
   

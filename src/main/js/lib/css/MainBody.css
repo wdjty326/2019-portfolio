@@ -210,7 +210,6 @@
 	left : 0px;
 	margin-left: auto;
 	margin-right: auto;
-	overflow-x: hidden;
 }
 
 .ActivityPage > .MainText {
@@ -250,15 +249,19 @@
     height: 500px;
     position: relative;
     /* overflow-x: hidden; */
-    overflow-y: auto;
-    margin-left: 15px;
     /* right: 15px; */
 }
 
-.projectList > ul > li.list-group-item {
+.projectList > div > a.list-group-item {
 	background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid #fff;
-    color: #fff;
+	color: #fff;
+	transform: scale(1);
+	transition: transform .2s ease;
+}
+
+.projectList > div > a.list-group-item:hover {
+	transform: scale(1.03);
 }
 
 .projectList > a.carousel-control {
