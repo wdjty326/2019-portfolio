@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 // import { Carousel, Panel } from 'react-bootstrap';
+import { WEB_APPLICATION_URI } from '../../configuration';
+
 // import reactIcon from '../../lib/image/react.png';
 // import kakaoIcon from '../../lib/image/kakao.png';
 
@@ -18,7 +20,7 @@ export default class ActivityPage extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('/gitList').then(response => {
+		axios.get(`${WEB_APPLICATION_URI}gitList`).then(response => {
 			this.setState({
 				gitList: response.data.object,
 			});

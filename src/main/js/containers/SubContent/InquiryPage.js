@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, FormGroup, ControlLabel, FormControl, HelpBlock, Button} from 'react-bootstrap';
 import axios from 'axios';
+import { WEB_APPLICATION_URI } from '../../configuration';
 
 const SuccessMessageAlert = () => (
 	<Alert bsStyle="success" >
@@ -95,7 +96,7 @@ export default class InquiryPage extends Component {
 			}
 		);
 		if ( regExp_Email.test(this.state.address) ) {
-			axios.post('/sendmail', this.state).then(response => {
+			axios.post(`${WEB_APPLICATION_URI}sendmail`, this.state).then(response => {
 				setTimeout(() => {
 					toggleAjaxLoad();
 					if (response.data.success) {

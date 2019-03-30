@@ -112,11 +112,12 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<scope>provided</scope>
-		</dependency>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/jstl-1.2.jar</systemPath>
+		</dependency> -->
 		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
