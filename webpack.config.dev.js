@@ -44,7 +44,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           name: 'static/image/[hash].[ext]',
-          publicPath: '/portfolio/',
+          publicPath: '/',
           limit: 10000,
         },
       }, {
@@ -52,7 +52,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: 'static/font/[hash].[ext]',
-          publicPath: '/portfolio/',
+          publicPath: '/',
           limit: 10000,
         },
       }
